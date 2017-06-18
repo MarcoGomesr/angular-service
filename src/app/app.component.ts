@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MyDataService } from './my-data.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  constructor(private newService: MyDataService){}
+
+  ngOnInit(){
+  	// console.log(this.newService.success());
+  	// console.log(this.newService.obj);
+
+  	// this.newService.obj.name = "John";
+  	// console.log(this.newService.obj.name);
+
+  	this.newService.fetchData();
+  }
 }
